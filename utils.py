@@ -531,7 +531,7 @@ def fit_function(y_label, y_output):
 def get_srcc_plcc(preds,targets):
     preds = preds.cpu().detach().numpy()
     targets = targets.cpu().detach().numpy()
-    y_output_logistic = fit_function(preds,targets)
+    y_output_logistic = fit_function(targets, preds)
     srcc = spearmanr(y_output_logistic, preds)[0]
     plcc = pearsonr(y_output_logistic, preds)[0]
     return srcc, plcc
